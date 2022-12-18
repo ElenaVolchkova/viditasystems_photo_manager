@@ -17,18 +17,19 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 
-from photo.views import UserViewSet, GroupViewSet, PhotoViewSet, PhotoAPIDestroy, PhotoDetailView, PhotoAPIList
+from photo.views import UserViewSet, GroupViewSet, PhotoAPIDestroy, PhotoDetailView, PhotoAPIList, \
+    RegistrUserView
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'groups', GroupViewSet)
-router.register(r'photos', PhotoViewSet)
 
 
 urlpatterns = [
     path('', include(router.urls)),
     path('api-auth/', include('rest_framework.urls')),
+    path('registr/', RegistrUserView.as_view(), name='registr'),
     path('admin/', admin.site.urls),
     path('api/v1/photo_delete/<int:pk>', PhotoAPIDestroy.as_view()),
     path('api/v1/photos/<int:pk>', PhotoDetailView.as_view()),
