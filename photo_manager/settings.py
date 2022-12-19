@@ -58,7 +58,7 @@ ROOT_URLCONF = 'photo_manager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/Users/alenavalchkova/PycharmProjects/viditasystems/venv/lib/python3.10/site-packages/django_admin_geomap/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
